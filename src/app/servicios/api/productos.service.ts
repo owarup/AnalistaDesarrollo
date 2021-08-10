@@ -13,8 +13,23 @@ export class ProductosService {
   constructor(private http: HttpClient) { }
 
   getPacientes():Observable<ListaProductosI[]>{
-    let direcion = this.url;
-    return this.http.get<ListaProductosI[]>(direcion);
+    let direccion = this.url;
+    return this.http.get<ListaProductosI[]>(direccion);
+  }
+
+  setPeciente(data: any): Observable<any>{
+    let direccion = this.url;
+    return this.http.post(direccion, data);
+  }
+
+  actualizar(id: any, data: any): Observable<any> {
+    let direccion = this.url;
+    return this.http.put(`${direccion}/${id}`, data);
+  }
+
+  elimar(id: any, data: any): Observable<any> {
+    let direccion = this.url;
+    return this.http.delete(`${direccion}/${id}`, data);
   }
 
 }
