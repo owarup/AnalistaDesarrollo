@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path: '', redirectTo: 'list-productos', pathMatch: 'full'},
   {path: 'list-productos', component:ListComponent},
-  {path: 'details-productos', component:DetailsComponent},
+  {path: 'details-productos/:id', component:DetailsComponent},
   {path: 'create-productos', component:CreateComponent},
   {path: '**', redirectTo: 'list-productos', pathMatch: 'full'}
 

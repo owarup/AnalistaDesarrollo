@@ -8,3 +8,15 @@ export interface ListaProductosI{
   calidad:string;
   cantidad:number;
 }
+
+/*
+  id
+  color
+  dimension
+  capacidad
+  modelo
+  material
+  calidad
+  cantidad
+
+  */

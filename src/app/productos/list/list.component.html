@@ -1,8 +1,9 @@
+
 <div class="container mt-4">
   <div class="card">
     <div class="card-body">
       <span class="h3">Lista de productos</span>
-      <button class="btn btn-dark btn-lg float-right" routerLink="/create-producto" >Agregar</button>
+      <button class="btn btn-dark btn-lg float-right" routerLink="/create-productos" >Agregar</button>
       <table class="table mt-4">
         <thead>
           <tr>
@@ -17,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let producto of productos" (click)="editarProducto(producto.id)">
+          <tr *ngFor="let producto of productos" >
             <th>{{producto.id}}</th>
             <td>{{producto.color}}</td>
             <td>{{producto.dimension}}</td>
@@ -26,8 +27,8 @@
             <td>{{producto.calidad}}</td>
             <td>{{producto.cantidad}}</td>
             <td>
-              <button class="btn btn-warning" routerLink="/datail-producto"> Editar </button>
-              <button class="btn btn-danger" style="margin-left: 7px;">Eliminar</button>
+              <button class="btn btn-warning" (click)="editarProducto(producto.id)"> Editar </button>
+              <button class="btn btn-danger" style="margin-left: 7px;" (click)="eliminarProducto(producto.id)">Eliminar</button>
             </td>
           </tr>
         </tbody>
