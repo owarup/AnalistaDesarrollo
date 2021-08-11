@@ -18,7 +18,7 @@ export class DetailsComponent implements OnInit {
 
   constructor(private activeRouter:ActivatedRoute , private router:Router, private api:ProductosService, private alertas:AlertasService) { }
 
-
+  datosProducto:ProductosI | undefined;
 
   editarForm = new FormGroup({
     color: new FormControl(''),
@@ -31,6 +31,20 @@ export class DetailsComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    let productoId = this.activeRouter.snapshot.paramMap.get('id');
+    this.api.getPaciente(productoId).subscribe(data=>{
+      this.datosProducto = data;
+      this.editarForm.setValue({
+        'color':this.datosProducto.color,
+        'dimension':this.datosProducto.dimension,
+        'capacidad':this.datosProducto.capacidad,
+        'modelo':this.datosProducto.modelo,
+        'material':this.datosProducto.material,
+        'calidad':this.datosProducto.calidad,
+        'cantidad':this.datosProducto.cantidad
+      });
+
+    })
   }
 
   postForm(form:ProductosI){
@@ -38,31 +52,19 @@ export class DetailsComponent implements OnInit {
     //console.log(productoId);
     this.api.actualizar(productoId, form).subscribe( data =>{
         let respuesta:ResponseI = data;
-        console.log(respuesta);
+        console.log(respuesta.result);
         if(respuesta.status == "ok"){
             this.alertas.showSuccess('Datos modificados','Hecho');
+            this.salir();
         }else{
           console.log("Error en mesaje");
             //this.alertas.showError(respuesta.result.error_msg,'Error');
-            this.alertas.showError('respuesta.result.error_msg','Error');
+          this.alertas.showError('respuesta.result.error_msg','Error');
 
         }
     })
   }
-/*
-  eliminar((id:any, form:ProductosI){
-    let datos:ProductosI = this.editarForm.value;
-    this.api.deleteProducto(datos).subscribe(data =>{
-      let respuesta:ResponseI = data;
-        if(respuesta.status == "ok"){
-            this.alertas.showSuccess('Paciente eliminado','Hecho');
-            this.router.navigate(['dashboard']);
-        }else{
-            this.alertas.showError(respuesta.result.error_msg,'Error');
-        }
-    })
-  }
-*/
+
 
   salir(){
     this.router.navigate(['list-productos']);

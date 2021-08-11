@@ -20,6 +20,11 @@ export class ProductosService {
     return this.http.get<ListaProductosI[]>(direccion);
   }
 
+  getPaciente(id: any):Observable<ProductosI>{
+    let direccion = this.url;
+    return this.http.get<ProductosI>(`${direccion}/${id}`);
+  }
+
   setPeciente(data: any): Observable<any>{
     let direccion = this.url;
     return this.http.post<ResponseI>(direccion, data);

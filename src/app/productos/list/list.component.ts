@@ -38,7 +38,7 @@ export class ListComponent implements OnInit {
         let respuesta:ResponseI = data;
         if(respuesta.status == "ok"){
             this.alertas.showSuccess('Paciente eliminado','Hecho');
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['list-productos']);
         }else{
             this.alertas.showError(respuesta.result.error_msg,'Error');
         }
