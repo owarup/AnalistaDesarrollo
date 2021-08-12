@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../servicios/api/productos.service'
 import { Router } from '@angular/router';
 
-import { ListaProductosI } from '../../modelo/listaproductos.interface';
+import { ListaProductosI } from '../../modelo/productos.interface';
 import { AlertasService } from 'src/app/servicios/alertas/alertas.service';
 import { ResponseI } from 'src/app/modelo/reponse.interface';
 

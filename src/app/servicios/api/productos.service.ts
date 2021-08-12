@@ -1,9 +1,8 @@
 import { ResponseI } from './../../modelo/reponse.interface';
 import { Injectable } from '@angular/core';
-import { ListaProductosI } from '../../modelo/listaproductos.interface';
 import { HttpClient,HttpHandler} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ProductosI } from 'src/app/modelo/productos.interface';
+import { ProductosI, ListaProductosI } from 'src/app/modelo/productos.interface';
 
 @Injectable({
   providedIn: 'root'

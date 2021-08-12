@@ -1,4 +1,6 @@
-export interface ProductosI{
+export {ProductosI,ListaProductosI}
+
+interface Entity{
   color:string;
   dimension:string;
   capacidad:string;
@@ -6,4 +8,11 @@ export interface ProductosI{
   material:string;
   calidad:string;
   cantidad:number;
+}
+interface ProductosI extends Entity{
+
+}
+
+interface ListaProductosI extends Entity {
+  id:number;
 }

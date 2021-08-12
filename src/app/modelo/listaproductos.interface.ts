@@ -1,3 +1,4 @@
+/*
 export interface ListaProductosI{
   id:number;
   color:string;
@@ -9,7 +10,7 @@ export interface ListaProductosI{
   cantidad:number;
 }
 
-/*
+
   id
   color
   dimension
